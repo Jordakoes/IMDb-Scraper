@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Title -->
+    <title>OMDb Scraper</title>
+</head>
+<body>
+    <form name='myform'>
+        <input class='searchbar' type='text' name='name' value='' placeholder='Search 20+ million movies'>
+        <p><input type='submit' onclick='check(); return false'></p>
+    </form>
+
+
+
+    <div class="grid-container">
+        <div class="title">
+            <p id='title'></p>
+        </div>
+        <div class="img">
+            <img id='poster' src=''>
+        </div>
+        <div class="duration">
+            <p id='duration'></p>
+        </div>
+        <div class="plot">
+            <p id='plot'></p>
+        </div>
+        <div class="imdb">
+            <p class="imdb_btn" id='IMDb-btn'></p>
+        </div>
+        <div class="download"></div>
+    </div>
+    
+    <!-- Javascript -->
+    <script src="app.js"></script>
+</body>
+</html>

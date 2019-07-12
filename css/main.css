@@ -1,0 +1,110 @@
+/* Google font import - Karla font */
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+* {
+    font-family: 'Karla', sans-serif;
+}
+
+html, body {
+    max-height: 100%;
+    padding: 0;
+    margin: 5% 10%;
+}
+
+/* Removing the focus when clicking the input field */
+input:focus {
+    outline: none;
+}
+
+/* Styling the searchbar and form*/
+.searchbar {
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+    padding: 1vw;
+    border: 1px solid #ddd;
+    width: 50vw;
+    color: #666666;
+    padding-left: 40px;
+    font-size: 1.5vw;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Styles for the scraped content (title, duration, plot etc) */
+#title {
+    font-weight: bold;
+    font-size: 3vw;
+}
+
+#duration {
+    font-size: 2vw;
+}
+
+/* CSS GRID container showing results*/
+.grid-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: .5fr .2fr 1fr .3fr;
+    grid-template-areas: 
+    "img    title      title"
+    "img    duration   duration"
+    "img    plot       plot"
+    "img    imdb       download";
+
+    background-color: #FAFAFA;
+    border-radius: 8px;
+    padding: 5%;
+
+    display: none;
+  }
+
+  img#poster {
+      height: 250px;
+      border-radius: 8px;
+  }
+
+  p#title, p#duration {
+      margin: 0;
+  }
+
+  .imdb_btn {
+      height: auto;
+      width: 70%;
+      padding: 3%;
+      background-color: #F4DD4F;
+      border-radius: 5px;
+      text-align: center;
+  }
+
+  /* Centering the contents with flexbox */
+  .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title, .duration, .plot {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+  
+  /* Setting up grid-area's for convenience (debugging and responsive design) */
+  .title { grid-area: title; }
+  
+  .img { grid-area: img; }
+  
+  .duration { grid-area: duration; }
+  
+  .plot { grid-area: plot; }
+  
+  .imdb { grid-area: imdb; }
+  
+  .download { grid-area: download; }

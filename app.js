@@ -53,3 +53,10 @@ function check() {
         }
     });
   }
+
+//Download animation to be triggered when download button is clicked
+
+function myFunction() {
+    document.querySelector('.grid-container').style.opacity = .2;
+    document.querySelector('.download-animation').style.display = "flex";
+}

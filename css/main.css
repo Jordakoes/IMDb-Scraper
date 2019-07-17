@@ -8,7 +8,8 @@
 html, body {
     max-height: 100%;
     padding: 0;
-    margin: 5% 10%;
+    margin: 3% 10%;
+    overflow: hidden;
 }
 
 /* Removing Chrome autofill color for the input field */
@@ -21,6 +22,10 @@ input:-webkit-autofill:active  {
 
 /* Removing the focus when clicking the input field */
 input, textarea, select, a { outline: none; }
+
+.submit-btn {
+    display: none;
+}
 
 /* Styling the searchbar and form*/
 .searchbar {
@@ -54,6 +59,10 @@ form {
     font-size: 2vw;
 }
 
+#error {
+    text-align: center;
+}
+
 /* CSS GRID container showing results*/
 .grid-container {
     display: grid;
@@ -68,6 +77,9 @@ form {
     background-color: #FAFAFA;
     border-radius: 8px;
     padding: 5%;
+    margin-top: 3%;
+
+    position: relative;
 
     grid-gap: 10px;
 
@@ -76,7 +88,7 @@ form {
 
   .download-animation {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -88,7 +100,7 @@ form {
     border-radius: 8px;
     opacity: 1;
 
-    padding: 2%;
+    padding: 4%;
 
     text-align: center;
 

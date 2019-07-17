@@ -14,15 +14,19 @@
 <body>
     <form name='myform'>
         <input class='searchbar' type='text' name='name' value='' placeholder='Search 20+ million movies'>
-        <p><input type='submit' onclick='check(); return false'></p>
+        <p class="submit-btn"><input type='submit' onclick='check(); return false'></p>
     </form>
 
-    <!-- Download animation -->
-    <div class="download-animation">
-            Download started!
+    <div class="error">
+            <p id="error"></p>
     </div>
 
     <div class="grid-container">
+
+        <!-- Download animation -->
+        <div class="download-animation">
+            Download started!
+        </div>
 
         <div class="title">
             <p id='title'></p>

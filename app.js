@@ -1,14 +1,27 @@
 function check() {
 
+    //resets
+    document.querySelector('.grid-container').style.opacity = 1;
+    document.querySelector('.download-animation').style.display = "none";
+    $('#error').text('');
+
+    //showing the results TODO: find a way to do this AFTER getJSON is finished
     document.querySelector('.grid-container').style.display = "grid";
-    // document.querySelector('#f1').innerHTML = document.myform.name.value;
 
     //OMDb scraping using jQuery 
     $.getJSON('https://www.omdbapi.com/?apikey=d7a28dd2&t=' + encodeURI(document.myform.name.value)).then(function(response)
 
     {
-        //console.log(response);
+        //show OMDb API response in console;
         console.log(response);
+
+        //catch error
+        console.log(response.Error);
+        var error = response.Error;
+        if(error) {
+            $('#error').text('Movie not found, check your spelling...')
+            document.querySelector('.grid-container').style.display = "none";
+        }
 
         // console.log(response.Title);
         var title = response.Title;
@@ -55,7 +68,6 @@ function check() {
   }
 
 //Download animation to be triggered when download button is clicked
-
 function myFunction() {
     document.querySelector('.grid-container').style.opacity = .2;
     document.querySelector('.download-animation').style.display = "flex";

@@ -13,16 +13,18 @@
 </head>
 <body>
     <form name='myform'>
-        <input class='searchbar' type='text' name='name' value='' placeholder='Search 20+ million movies'>
-        <p><input type='submit' onclick='check(); return false'></p>
+        <input class='searchbar' type='text' name='name' value='' placeholder='Search 20+ million movies...'>
+        <p class="submit-btn"><input type='submit' onclick='check(); return false'></p>
     </form>
 
-    <!-- Download animation -->
-    <div class="download-animation">
-            Download started!
-    </div>
+    
 
     <div class="grid-container">
+
+        <!-- Download animation -->
+        <div class="download-animation">
+            Download started!
+        </div>
 
         <div class="title">
             <p id='title'></p>
@@ -40,7 +42,7 @@
             <p class="imdb_btn" id='IMDb-btn'></p>
         </div>
         <div class="download">
-            <a class="download_btn" href="#" onclick="myFunction()"  >Download as Torrent</a>
+            <a class="download_btn" href="#" onclick="dlStarted()"  >Download as Torrent</a>
         </div>
     </div>
     

@@ -11,9 +11,9 @@ function check() {
     //document.querySelector('#error').style.display = "none";
 
     $.getJSON('https://api.themoviedb.org/3/search/movie?api_key=3b35407824b1cc23ccf4cd13b04f9784&language=en-US&query='+ encodeURI(document.myform.name.value)).then(function(response) {
-        
-        //error catching...
-            //console.log(response.total_results);
+    
+    //error catching...
+        //console.log(response.total_results);
         if(response.total_results < 1) { //check if there is a result
             //if not then
             $('#error').text('No movie found, check your spelling')
@@ -23,6 +23,27 @@ function check() {
             $('#error').text('')
         }
 
+    //     //console.log(response.results[0].id);
+    //     //console.log(response.results[1].id);
+    // var id = response.results[0].id;
+    // $.getJSON('https://api.themoviedb.org/3/movie/'+id+'?api_key=3b35407824b1cc23ccf4cd13b04f9784&language=en-US').then(function(detailsMovieOne) {
+    //     console.log(detailsMovieOne);
+    //         //console.log(response.runtime);
+    //     var runtime = detailsMovieOne.runtime;
+    //     if(runtime !== "N/A" || "undefined"){
+    //         $('#runtime1').text(runtime);
+    //     }
+    // });
+    // var id2 = response.results[1].id;
+    // $.getJSON('https://api.themoviedb.org/3/movie/'+id2+'?api_key=3b35407824b1cc23ccf4cd13b04f9784&language=en-US').then(function(detailsMovieTwo) {
+    //     console.log(detailsMovieTwo);
+    //         //console.log(response.runtime);
+    //     var runtime = detailsMovieTwo.runtime;
+    //     if(runtime !== "N/A" || "undefined"){
+    //         $('#runtime2').text(runtime);
+    //     }
+    // });
+
         //log API response to console
         console.log(response);
             
@@ -30,8 +51,6 @@ function check() {
         var title1 = response.results[0].title;
         if(title1 !== "N/A" || "undefined"){
             $('#title1').text(title1);
-        } else {
-            $('#title1').text('Sukablyt');
         }
             //console.log(response.results[1].title)
         var title2 = response.results[1].title;
@@ -52,13 +71,16 @@ function check() {
 
             //console.log(response.results[0].release_date);
         var release1 = response.results[0].release_date;
+        var releaseYear1 = release1.slice(0,4); //shorting the release date to show only the year
         if(release1 !== "N/A" || "undefined"){
-            $('#release1').text(release1);
+            $('#release1').text(releaseYear1);
         }
+
             //console.log(response.results[1].release_date);
         var release2 = response.results[1].release_date;
-        if(release2 !== "N/A" || "undefined"){
-            $('#release2').text(release2);
+        var releaseYear2 = release2.slice(0,4);
+        if(releaseYear2 !== "N/A" || "undefined"){
+            $('#release2').text(releaseYear2);
         }
 
             //console.log(response.results[0].vote_average);

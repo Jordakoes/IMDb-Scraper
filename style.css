@@ -195,6 +195,7 @@ form .search {
         padding: 0;
         margin: 3% 2%;
         /* overflow: hidden; */
+        overflow-x: hidden;
     }
 
     .searchbar {
@@ -208,10 +209,6 @@ form .search {
         top: 34%;
         left: 9.1%;
         height: 3.3vw;
-    }
-
-    .submit-btn {
-        display: block;
     }
 
     .result1, .result2 {

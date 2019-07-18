@@ -12,13 +12,18 @@ html, body {
     /* overflow: hidden; */
 }
 
+#error {
+    text-align: center;
+    font-size: 1.2vw;
+}
+
 /* Removing Chrome autofill color for the input field */
-input:-webkit-autofill,
+/* input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active  {
     -webkit-box-shadow: 0 0 0 30px white inset !important;
-}
+} */
 
 /* Removing the focus when clicking the input field */
 input, textarea, select, a { outline: none; }
@@ -36,17 +41,25 @@ input, textarea, select, a { outline: none; }
     border: 1px solid #ddd;
     width: 50vw;
     color: #666666;
-    padding-left: 40px;
-    font-size: 1.5vw;
+    padding-left: 4vw;
+    font-size: 2vw;
     background-color: white
 }
 
 form {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 100%;
+}
+
+form .search {
+    position: absolute;
+    top: 32%;
+    left: 9.1%;
+    height: 1.8vw;
 }
 
 /* Styles for the scraped content (title, duration, plot etc) */
@@ -126,6 +139,7 @@ form {
   a {
       text-decoration: none;
       color: #FFFFFF;
+      cursor: pointer;
   }
 
   .download_btn {
@@ -172,3 +186,66 @@ form {
   .imdb { grid-area: imdb; }
   
   .download { grid-area: download; }
+
+  /* Mobile view */
+  @media only screen and (max-width: 750px) {
+
+    html, body {
+        height: auto;
+        padding: 0;
+        margin: 3% 2%;
+        /* overflow: hidden; */
+    }
+
+    .searchbar {
+        width: 80%;
+        padding-left: 8vw;
+        font-size: 4vw;
+    }
+
+    form .search {
+        position: absolute;
+        top: 34%;
+        left: 9.1%;
+        height: 3.3vw;
+    }
+
+    .result1, .result2 {
+        grid-template-columns: 1fr .8fr;
+        grid-template-rows: .1fr .05fr auto .2fr 1fr;
+        grid-template-areas: 
+        "title       title"
+        "release1    release1"
+        "plot        plot"
+        "imdb        download"
+        "img         img";
+        padding: 5%;
+        margin-top: 5%;
+        grid-gap: 10px 50px;
+      }
+
+      .title {
+        font-size: 7vw;
+    }
+    
+    .release {
+        font-size: 7vw;
+    }
+
+    #plot1, #plot2 {
+        margin: 0;
+    }
+
+    .imdb_btn {
+        height: auto;
+        width: 100%;
+        padding: 1.5vw;
+    }
+
+    .download_btn {
+        height: auto;
+        width: 100%;
+        padding: 1vw;
+    }
+
+  }

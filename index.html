@@ -12,9 +12,13 @@
 </head>
 <body>
     <form name='myform'>
+        <img class="search" src="search_thin.svg" alt="">
         <input class='searchbar' type='text' name='name' value='' placeholder='Search 20+ million movies'>
         <p class="submit-btn"><input type='submit' onclick='check(); return false'></p>
     </form>
+
+    <!-- Error message if no movie is found -->
+    <p id="error"></p>
 
     <div class="result1">
         <!-- Download animation -->
@@ -40,7 +44,8 @@
         </div>
 
         <div class="download">
-            <a class="download_btn" href="#" onclick="dlFirst()">Download as Torrent</a>
+            <!-- TODO: Add href -->
+            <a class="download_btn"  onclick="dlFirst()">Download as Torrent</a>
         </div>
     
         <div class='img'>
@@ -73,7 +78,8 @@
         </div>
 
         <div class="download">
-            <a class="download_btn" href="#" onclick="dlSecond()">Download as Torrent</a>
+            <!-- TODO: Add href -->
+            <a class="download_btn" onclick="dlSecond()">Download as Torrent</a>
         </div>
         
         <div class='img'>

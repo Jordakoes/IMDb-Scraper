@@ -1,5 +1,5 @@
 /* Google font import - Karla font */
-@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
 
 * {
     font-family: 'Karla', sans-serif;
@@ -31,28 +31,25 @@ input, textarea, select, a {
     transition: all .3s ease-in-out; 
 }
 
-input:focus {
-    /* box-shadow: 0 0 5px rgba(123, 175, 253, 1); */
-    box-shadow: 0 0 0 2pt #7baffd;
-}
-
 .submit-btn {
     display: none;
 }
 
 /* Styling the searchbar and form*/
-.searchbar {
+input {
     border-radius: 5px;
     border: none;
-    /* box-shadow: 0px 1px 3px rgba(0,0,0,0.2); */
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
     padding: 1vw;
-    /* border: 1px solid #ddd; */
     width: 50vw;
     color: #666666;
     padding-left: 4vw;
     font-size: 1.5vw;
     background-color: white
+}
+
+input:focus {
+    box-shadow: 0 0 0 2pt #7baffd;
 }
 
 form {

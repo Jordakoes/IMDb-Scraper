@@ -25,15 +25,19 @@ function check() {
 
     //     //console.log(response.results[0].id);
     //     //console.log(response.results[1].id);
-    // var id = response.results[0].id;
-    // $.getJSON('https://api.themoviedb.org/3/movie/'+id+'?api_key=3b35407824b1cc23ccf4cd13b04f9784&language=en-US').then(function(detailsMovieOne) {
-    //     console.log(detailsMovieOne);
-    //         //console.log(response.runtime);
-    //     var runtime = detailsMovieOne.runtime;
-    //     if(runtime !== "N/A" || "undefined"){
-    //         $('#runtime1').text(runtime);
-    //     }
-    // });
+     var id = response.results[0].id;
+     $.getJSON('https://api.themoviedb.org/3/movie/'+id+'?api_key=3b35407824b1cc23ccf4cd13b04f9784&append_to_response=videos').then(function(detailsMovieOne) {
+         console.log(detailsMovieOne);
+             //console.log(response.runtime);
+         var runtime = detailsMovieOne.runtime;
+         if(runtime !== "N/A" || "undefined"){
+             $('#runtime1').text(runtime);
+         }
+         //console.log(detailsMovieOne.videos.results[0].key);
+         var youtubeKey = detailsMovieOne.videos.results[0].key;
+         var a = document.querySelector('#trailer1');
+         a.href = 'http://youtu.be/'+youtubeKey;
+     });
     // var id2 = response.results[1].id;
     // $.getJSON('https://api.themoviedb.org/3/movie/'+id2+'?api_key=3b35407824b1cc23ccf4cd13b04f9784&language=en-US').then(function(detailsMovieTwo) {
     //     console.log(detailsMovieTwo);

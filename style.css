@@ -5,6 +5,10 @@
     font-family: 'Karla', sans-serif;
 }
 
+.trailer, #trailer1 {
+    color: black;
+}
+
 html, body {
     height: auto;
     padding: 0;

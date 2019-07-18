@@ -9,7 +9,6 @@ html, body {
     height: auto;
     padding: 0;
     margin: 3% 10%;
-    /* overflow: hidden; */
 }
 
 #error {
@@ -194,9 +193,6 @@ form .search {
         height: auto;
         padding: 0;
         margin: 3% 2%;
-        /* overflow: hidden; */
-        overflow-x: hidden;
-        max-width: 100%;
     }
 
     .searchbar {

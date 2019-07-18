@@ -5,8 +5,8 @@
     font-family: 'Karla', sans-serif;
 }
 
-.trailer, #trailer1 {
-    color: black;
+.trailer, #trailer1, #trailer2 {
+    color: #FAFAFA;
 }
 
 html, body {
@@ -120,7 +120,7 @@ form .search {
     color: #095BE6;
     border-radius: 8px;
     opacity: 1;
-    padding: 4%;
+    padding: 5%;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -261,5 +261,9 @@ form .search {
         width: 100%;
         padding: 1vw;
     }
+
+    .download-animation1, .download-animation2 {
+        font-size: 7vw;
+      }
 
   }

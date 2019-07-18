@@ -29,24 +29,42 @@ function check() {
      $.getJSON('https://api.themoviedb.org/3/movie/'+id+'?api_key=3b35407824b1cc23ccf4cd13b04f9784&append_to_response=videos').then(function(detailsMovieOne) {
          console.log(detailsMovieOne);
              //console.log(response.runtime);
-         var runtime = detailsMovieOne.runtime;
-         if(runtime !== "N/A" || "undefined"){
-             $('#runtime1').text(runtime);
-         }
+         //var runtime = detailsMovieOne.runtime;
+         //if(runtime !== "N/A" || "undefined"){
+         //    $('#runtime1').text(runtime);
+         //}
          //console.log(detailsMovieOne.videos.results[0].key);
+
+         //TODO: When there is no trailer available, tell the user!
          var youtubeKey = detailsMovieOne.videos.results[0].key;
-         var a = document.querySelector('#trailer1');
-         a.href = 'http://youtu.be/'+youtubeKey;
+         if(youtubeKey !== "N/A" || "undefined"){
+            var linkToTrailer1 = document.querySelector('#trailer1');
+            linkToTrailer1.href = 'http://youtu.be/'+youtubeKey;
+         } else {
+            console.log('First movie has no trailer available...')
+         }
+         
      });
-    // var id2 = response.results[1].id;
-    // $.getJSON('https://api.themoviedb.org/3/movie/'+id2+'?api_key=3b35407824b1cc23ccf4cd13b04f9784&language=en-US').then(function(detailsMovieTwo) {
-    //     console.log(detailsMovieTwo);
-    //         //console.log(response.runtime);
-    //     var runtime = detailsMovieTwo.runtime;
-    //     if(runtime !== "N/A" || "undefined"){
-    //         $('#runtime2').text(runtime);
-    //     }
-    // });
+    
+     var id2 = response.results[1].id;
+     $.getJSON('https://api.themoviedb.org/3/movie/'+id2+'?api_key=3b35407824b1cc23ccf4cd13b04f9784&append_to_response=videos').then(function(detailsMovieTwo) {
+         console.log(detailsMovieTwo);
+             //console.log(response.runtime);
+         //var runtime = detailsMovieTwo.runtime;
+         //if(runtime !== "N/A" || "undefined"){
+         //    $('#runtime2').text(runtime);
+         //}
+
+        //TODO: When there is no trailer available, tell the user!
+         var youtubeKey2 = detailsMovieTwo.videos.results[0].key;
+         if(youtubeKey2 !== "N/A" || "undefined"){
+            var linkToTrailer2 = document.querySelector('#trailer2');
+            linkToTrailer2.href = 'http://youtu.be/'+youtubeKey2;
+         } else {
+             console.log('Second movie has no trailer available...')
+         }
+         
+     });
 
         //log API response to console
         console.log(response);

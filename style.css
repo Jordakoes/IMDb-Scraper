@@ -266,4 +266,8 @@ form .search {
         font-size: 7vw;
       }
 
+      #error {
+        font-size: 4vw;
+    }
+
   }

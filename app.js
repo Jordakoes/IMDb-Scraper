@@ -1,74 +1,83 @@
 function check() {
 
     //resets
-    document.querySelector('.grid-container').style.opacity = 1;
-    document.querySelector('.download-animation').style.display = "none";
-    $('#error').text('');
+    document.querySelector(".result1").style.display = "grid";
+    document.querySelector(".result2").style.display = "grid";
+    document.querySelector('.result1').style.opacity = 1;
+    document.querySelector('.download-animation1').style.display = "none";
+    document.querySelector('.result2').style.opacity = 1;
+    document.querySelector('.download-animation2').style.display = "none";
 
-    //showing the results TODO: find a way to do this AFTER getJSON is finished
-    document.querySelector('.grid-container').style.display = "grid";
-
-    //OMDb scraping using jQuery 
-    $.getJSON('https://www.omdbapi.com/?apikey=d7a28dd2&t=' + encodeURI(document.myform.name.value)).then(function(response)
-
-    {
-        //show OMDb API response in console;
+    $.getJSON('https://api.themoviedb.org/3/search/movie?api_key=3b35407824b1cc23ccf4cd13b04f9784&language=en-US&query='+ encodeURI(document.myform.name.value)).then(function(response) {
+        
+        //log API response to console
         console.log(response);
 
-        //catch error
-        console.log(response.Error);
-        var error = response.Error;
-        if(error) {
-            $('#error').text('Movie not found, check your spelling...')
-            document.querySelector('.grid-container').style.display = "none";
+        //show first result title
+            //console.log(response.results[0].title)
+        //show second result title
+            //console.log(response.results[1].title)
+
+        var title1 = response.results[0].title;
+        if(title1 !== "N/A" || "undefined"){
+            $('#title1').text(title1);
+        }
+        var title2 = response.results[1].title;
+        if(title2 !== "N/A" || "undefined"){
+            $('#title2').text(title2)
         }
 
-        // console.log(response.Title);
-        var title = response.Title;
-        var year = response.Year;
-        //If there is no title or year available then:
-        if(title !== "N/A" || "undefined"){
-            $('#title').text(title);
-            $('#year').text(year);
+            //console.log(response.results[0].overview);
+        var plot1 = response.results[0].overview;
+        if(plot1 !== "N/A" || "undefined"){
+            $('#plot1').text(plot1);
+        }
+        var plot2 = response.results[1].overview;
+        if(plot2 !== "N/A" || "undefined"){
+            $('#plot2').text(plot2);
         }
 
-        //console.log(response.Runtime);
-        var runtime = response.Runtime;
-        //If there is no duration avaiable then:
-        if(runtime !== "N/A" || "undefined"){
-            $('#duration').text(runtime);
+            //console.log(response.results[0].release_date);
+        var release1 = response.results[0].release_date;
+        if(release1 !== "N/A" || "undefined"){
+            $('#release1').text(release1);
         }
-        
-        //console.log(response.Poster);
-        var image = response.Poster;
-        //If there is no poster available then:
-        if(image !== "N/A" || "undefined"){
-            $('#poster').attr('src', image);
+        var release2 = response.results[1].release_date;
+        if(release2 !== "N/A" || "undefined"){
+            $('#release2').text(release2);
         }
 
-        //console.log(response.Plot);
-        var plot = response.Plot;
-        //If there is no plot available then:
-        if(plot !== "N/A" || "undefined"){
-            $('#plot').text(plot);
+            //console.log(response.results[0].vote_average);
+        var imdb = response.results[0].vote_average;
+        if(imdb !== "N/A" || "undefined"){
+            $('#rating1').text('IMDb '+imdb);
+        }
+        var imdb2 = response.results[1].vote_average;
+        if(imdb2 !== "N/A" || "undefined"){
+            $('#rating2').text('IMDb '+imdb2);
         }
 
-        //console.log(response.Ratings[0].Value);
-        var rating = response.Ratings[0].Value;
-        if(rating !== "N/A" || "undefined"){
-            $('#IMDb-btn').text("IMDb " + rating);
+            //console.log(response.results[0].poster_path);
+        var poster1 = response.results[0].poster_path;
+        if(poster1 !== "N/A" || "undefined"){
+
+            $('#poster1').attr('src', 'https://image.tmdb.org/t/p/w500'+poster1);
+        }
+        var poster2 = response.results[1].poster_path;
+        if(poster2 !== "N/A" || "undefined"){
+
+            $('#poster2').attr('src', 'https://image.tmdb.org/t/p/w500'+poster2);
         }
 
-        //console.log(response.Ratings[0].Value);
-        var rating = response.Ratings[1].Value;
-        if(rating !== "N/A" || "undefined"){
-            $('#RT-btn').text("Rotten " + rating);
-        }
     });
-  }
+}
 
-//Download animation to be triggered when download button is clicked
-function myFunction() {
-    document.querySelector('.grid-container').style.opacity = .2;
-    document.querySelector('.download-animation').style.display = "flex";
+ function dlFirst() {
+     document.querySelector('.result1').style.opacity = .2;
+     document.querySelector('.download-animation1').style.display = "flex";
+}
+
+function dlSecond() {
+    document.querySelector('.result2').style.opacity = .2;
+    document.querySelector('.download-animation2').style.display = "flex";
 }

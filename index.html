@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/main.css">
-    <!-- jQuery -->
+    <title>TMDB Scraper</title>
+    <!-- jQuery Google library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Title -->
-    <title>OMDb Scraper</title>
+    <!-- Personal CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <form name='myform'>
@@ -17,38 +16,72 @@
         <p class="submit-btn"><input type='submit' onclick='check(); return false'></p>
     </form>
 
-    <div class="error">
-            <p id="error"></p>
-    </div>
-
-    <div class="grid-container">
-
+    <div class="result1">
         <!-- Download animation -->
-        <div class="download-animation">
+        <div class="download-animation1">
             Download started!
         </div>
 
+        <!-- API Results -->
         <div class="title">
-            <p id='title'></p>
+            <p id='title1'></p>
         </div>
-        <div class="img">
-            <img id='poster' src=''>
+
+        <div class="release">
+            <p id='release1'></p>
         </div>
-        <div class="duration">
-            <p id='duration'></p>
-        </div>
+
         <div class="plot">
-            <p id='plot'></p>
+            <p id='plot1'></p>
         </div>
+
         <div class="imdb">
-            <p class="imdb_btn" id='IMDb-btn'></p>
+            <p class="imdb_btn" id='rating1'></p>
         </div>
+
         <div class="download">
-            <a class="download_btn" href="#" onclick="myFunction()"  >Download as Torrent</a>
+            <a class="download_btn" href="#" onclick="dlFirst()">Download as Torrent</a>
+        </div>
+    
+        <div class='img'>
+            <img id='poster1' src=''>
         </div>
     </div>
+
+
+    <div class="result2">
+        <!-- Download animation -->
+        <div class="download-animation2">
+            Download started!
+        </div>
+
+        <!-- API results -->
+        <div class="title">
+            <p id='title2'></p>
+        </div>
     
-    <!-- Javascript -->
+        <div class="release">
+            <p id='release2'></p>
+        </div>
+    
+        <div class="plot">
+            <p id='plot2'></p>
+        </div>
+    
+        <div class="imdb">
+            <p class="imdb_btn" id='rating2'></p>
+        </div>
+
+        <div class="download">
+            <a class="download_btn" href="#" onclick="dlSecond()">Download as Torrent</a>
+        </div>
+        
+        <div class='img'>
+            <img id='poster2' src=''>
+        </div>
+    </div>
+
+    <!-- My Javascript -->
     <script src="app.js"></script>
 </body>
 </html>

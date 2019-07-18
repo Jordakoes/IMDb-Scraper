@@ -6,10 +6,10 @@
 }
 
 html, body {
-    max-height: 100%;
+    height: auto;
     padding: 0;
     margin: 3% 10%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 /* Removing Chrome autofill color for the input field */
@@ -50,27 +50,23 @@ form {
 }
 
 /* Styles for the scraped content (title, duration, plot etc) */
-#title {
+.title {
     font-weight: bold;
     font-size: 3vw;
 }
 
-#duration {
+.release {
     font-size: 2vw;
 }
 
-#error {
-    text-align: center;
-}
-
 /* CSS GRID container showing results*/
-.grid-container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1.5fr;
+.result1, .result2 {
+    display: none;
+    grid-template-columns: 1fr 1fr 1.5fr;
     grid-template-rows: .5fr .2fr 1fr .3fr;
     grid-template-areas: 
     "img    title      title"
-    "img    duration   duration"
+    "img    release1   release1"
     "img    plot       plot"
     "img    imdb       download";
 
@@ -81,17 +77,15 @@ form {
 
     position: relative;
 
-    grid-gap: 10px;
-
-    display: none;
+    grid-gap: 10px 50px;
   }
 
-  .download-animation {
+  .download-animation1, .download-animation2 {
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     font-size: 3.5vw;
     height: 50px;
     width: 300px;
@@ -99,22 +93,18 @@ form {
     color: #095BE6;
     border-radius: 8px;
     opacity: 1;
-
     padding: 4%;
-
     text-align: center;
-
-    display: none;
     align-items: center;
     justify-content: center;
   }
 
-  img#poster {
-      height: 250px;
+  img {
+      height: 350px;
       border-radius: 8px;
   }
 
-  p#title, p#duration {
+  p#title1, p#release1, p#title2, p#release2 {
       margin: 0;
   }
 
@@ -164,6 +154,10 @@ form {
     display: flex;
     align-items: center;
     justify-content: start;
+  }
+
+  .plot {
+      color: #666;
   }
   
   /* Setting up grid-area's for convenience (debugging and responsive design) */

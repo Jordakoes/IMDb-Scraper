@@ -210,6 +210,10 @@ form .search {
         height: 3.3vw;
     }
 
+    .submit-btn {
+        display: block;
+    }
+
     .result1, .result2 {
         grid-template-columns: 1fr .8fr;
         grid-template-rows: .1fr .05fr auto .2fr 1fr;

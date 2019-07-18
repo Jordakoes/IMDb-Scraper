@@ -196,6 +196,7 @@ form .search {
         margin: 3% 2%;
         /* overflow: hidden; */
         overflow-x: hidden;
+        max-width: 100%;
     }
 
     .searchbar {
